@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "hi-noon",
+    "slug": "hi-noon",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "hi-noon"
+}
