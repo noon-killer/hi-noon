@@ -1,13 +1,42 @@
 import React, { useState } from 'react'
 import { styles } from '../stylesheets/styles'
 import { Text, View, TextInput, Button } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import doPost from './doPost';
 
 export const HomeScreen = ({navigation}) => {
+  
+  // function doPost(endpoint) {
+  //   fetch(endpoint, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'Application/JSON'
+  //     },
+  //     body: JSON.stringify({
+  //       name,
+  //       age,
+  //       location,
+  //       profile_id,
+  //     })
+  //   })
+  //     .then(res => res.json())
+  //     .then((data) => {
+  //       console.log('returned data: ', data);
+  //     })
+  //     .catch(err => console.log('CreatePerson fetch /api/create_person: ERROR: ', err));
+  // };
   
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [location, setLocation] = useState('');
+  const profile_id = Math.floor(Math.random()*1000);
+
+  const postBody = {
+          name,
+          age,
+          location,
+          profile_id,
+        }
 
   return(
   <View style={styles.layout}>
@@ -41,14 +70,14 @@ export const HomeScreen = ({navigation}) => {
         onChangeText={text => setLocation(text)}
       />
 
-      <TouchableOpacity onPress={() => navigation.navigate('Choice')}>
-        <Text> Go to my choices </Text>
-      </TouchableOpacity>
+        <Button 
+          onPress={() => {
+            console.log('logging body:', postBody);
+            return doPost('dawsontest.com/dating_app/create_person', postBody)
+          }}
+          title="Submit my info"
+        />
 
-      <Button 
-        onPress={() => navigation.navigate('Forum')}
-        title="Go to the forums"
-      />
     </View>
   </View>
   )

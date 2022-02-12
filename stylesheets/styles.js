@@ -27,5 +27,11 @@ export const styles = StyleSheet.create({
   textInput: {
     padding: 8, 
     backgroundColor: '#f5f5f5'
+  },
+  choiceView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
   }
 });

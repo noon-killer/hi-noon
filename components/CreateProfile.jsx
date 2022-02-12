@@ -3,15 +3,21 @@ import React, { useState, useEffect } from 'react';
 // Custom hook for handling input boxes
 // saves us from creating onChange handlers for them individually
 const useInput = init => {
+  
   const [ value, setValue ] = useState(init);
+
   const onChange = e => {
     setValue(e.target.value);
   };
+
   // return the value with the onChange function instead of setValue function
   return [ value, onChange ];
 };
 
 const CreateProfile = props => {
+
+  const endpoint = '98.37.237.155/noon_clone/create_person';
+
   const [ name, nameOnChange ] = useInput('');
   const [ gender, genderOnChange ] = useInput('');
   const [ age, ageOnChange ] = useInput('');
@@ -36,7 +42,7 @@ const CreateProfile = props => {
         profile_id,
       };
 
-      fetch('/create_person', {
+      fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'Application/JSON'
@@ -46,9 +52,6 @@ const CreateProfile = props => {
         .then(res => res.json())
         .then((data) => {
           console.log(data);
-        })
-        .then(() => {
-          props.history.push('/');
         })
         .catch(err => console.log('CreatePerson fetch /api/create_person: ERROR: ', err));
 
@@ -64,6 +67,7 @@ const CreateProfile = props => {
 
   return (
     <section className="mainSection createCharContainer">
+
       <header className="pageHeader">
         <h2>Profile Creator</h2>
         <Link to="/" className="backLink">
@@ -72,6 +76,7 @@ const CreateProfile = props => {
           </button>
         </Link>
       </header>
+
       <article className="card createChar">
         <h3>Enter your details</h3>
         <div className="createCharFields">
@@ -96,6 +101,7 @@ const CreateProfile = props => {
           <button type="button" className="btnMain" onClick={saveProfile}>Save</button>
         </div>
       </article>
+      
     </section>
   );
 };
