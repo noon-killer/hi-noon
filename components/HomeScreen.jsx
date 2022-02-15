@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { styles } from '../stylesheets/styles'
 import { Text, View, TextInput, Button } from 'react-native';
 
-import doPost from './doPost';
+import doPost from './createPerson';
 
 export const HomeScreen = ({navigation}) => {
   
@@ -73,7 +73,7 @@ export const HomeScreen = ({navigation}) => {
         <Button 
           onPress={() => {
             console.log('logging body:', postBody);
-            return doPost('dawsontest.com/dating_app/create_person', postBody)
+            return createPerson(postBody)
           }}
           title="Submit my info"
         />

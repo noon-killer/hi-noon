@@ -1,6 +1,6 @@
-const doPost = (endpoint, body) => {
+const createPerson = (body) => {
 
-    fetch(endpoint, {
+    fetch('dawsontest.com/dating_app/create_person', {
       method: 'POST',
       headers: {
         'Content-Type': 'Application/JSON'
@@ -15,4 +15,4 @@ const doPost = (endpoint, body) => {
       
 };
 
-export default doPost
+export default createPerson
