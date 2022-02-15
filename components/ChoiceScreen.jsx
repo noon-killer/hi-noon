@@ -1,17 +1,16 @@
 import React from 'react'
 // import { styles } from '../stylesheets/styles'
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
-import {getRandomPersons} from './getRadomPersons'
-
+import {getRandomPersons} from './getRandomPersons'
+import createDecision from './createDecision'
 
 export const ChoiceScreen = () => {
   
   // const choices = getRandomPersons('dawsontest.com/dating_app/get_random_persons', body)
 
-
   const choices = [
     {
-        "id": null,
+        "id": 3088,
         "created_at": "2022-02-03T21:08:59.40Z",
         "updated_at": "2022-02-03T21:08:59.40Z",
         "age": 25,
@@ -20,7 +19,7 @@ export const ChoiceScreen = () => {
         "profileId": null
     },
     {
-        "id": null,
+        "id": 1077,
         "created_at": "2022-02-03T21:10:37.49Z",
         "updated_at": "2022-02-03T21:10:37.49Z",
         "age": 26,
@@ -33,35 +32,51 @@ export const ChoiceScreen = () => {
   return (
 
     <View>
-    
-
       <Text style={styles.text}>Choose between the two!</Text>
-      <Choice choice={choices[0]} />
-      <Choice choice={choices[1]}/>
-
+      <View style={styles.choice}>
+        <Choice choice={choices[0]} />
+        <Choice choice={choices[1]}/>
+      </View>
+      
     </View>
   )
 
 }; 
 
-const Choice = ({choice}) => (
-  
-  <View style={styles.choice}>
+const Choice = ({choice}) => {
+
+  const likeObj = {
+    "from_person_id": "9b2578dc-8580-11ec-90aa-a3f330350be8",
+    "to_person_id": choice.id,
+    "decision" : "LIKE"
+ }
+
+ return (
+  <View style={styles.circle}>
     <TouchableOpacity 
       key={choice.id}
-      onPress={() => addToLikeList(choice, tempArr)}
+      onPress={() => createDecision(likeObj)}
     >
-      <Text style={styles.title}>{choice}</Text>
+      <Text style={styles.title}>{choice.name}</Text>
     </TouchableOpacity>
   </View>
+ )
 
-)
+}
 
 
 
 export const styles = StyleSheet.create({
   choice: {
   flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'row'
+},
+circle: {
+  height: 50,
+  width: 50,
+  borderRadius: 100,
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'row'
