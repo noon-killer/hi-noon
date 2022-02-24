@@ -29,8 +29,8 @@ export const styles = StyleSheet.create({
   flexDirection: 'row'
 },
   post: {
-    // backgroundColor: '#f7ffe0'
-    backgroundColor: 'blue'
+    backgroundColor: '#f7ffe0'
+    // backgroundColor: 'blue'
 },
 
 })

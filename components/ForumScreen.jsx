@@ -3,9 +3,13 @@ import { styles } from '../stylesheets/styles'
 import { Text, TouchableOpacity, View } from 'react-native';
 import posts from '../data/posts.json'
 import TextPost from './TextPost';
+import getAllPosts from './getAllPosts';
 
-const {_embedded: {postDetailses}} = getAllPosts();
-  
+console.log('Test Console Log')
+// const {_embedded: {postDetailses}} = getAllPosts();
+const postDetailses = posts.data;
+console.log(postDetailses)
+
 const postArray = [];
   
 postDetailses.forEach( (post) => {
@@ -19,7 +23,6 @@ export const ForumScreen = () => {
   
   return (
     <View>
-      <TextPost title={'Test Title 1'} author={'Jintaco'} body={'I love cheeseburgers'} hashtags={['food', 'relationships']} viewCount={13} commentCount={3}/>
       {postArray}
     </View>
   )
