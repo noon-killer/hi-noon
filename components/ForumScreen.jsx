@@ -7,14 +7,15 @@ import getAllPosts from './getAllPosts';
 
 console.log('Test Console Log')
 // const {_embedded: {postDetailses}} = getAllPosts();
-const postDetailses = posts.data;
+const {data} = posts;
+const postDetailses = data;
 console.log(postDetailses)
 
 const postArray = [];
   
 postDetailses.forEach( (post) => {
    console.log('post:', post)
-   postArray.push(<TextPost title={post.title} author={post.author} body={post.body} hashtags={post.tags} viewCount={post.viewCount} commentCount={post.commentCount}/>)
+   postArray.push(<TextPost key={post.title} title={post.title} author={post.author} body={post.body} hashtags={post.tags} viewCount={post.viewCount} commentCount={post.commentCount}/>)
 });
 
 export const ForumScreen = () => {
@@ -26,9 +27,7 @@ export const ForumScreen = () => {
       {postArray}
     </View>
   )
-
 };
-
 
 // export const styles = StyleSheet.create({
 //   choice: {

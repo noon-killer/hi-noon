@@ -9,14 +9,25 @@
   - comment count
   - comment button
 */
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Button } from 'react-native';
 
 const TextPost = ({title, author, body, tags, viewCount, commentCount, likeCount}) => {
+
+  const commentStr = `Comments: ${commentCount}`
 
   return (
     <View style={styles.post}>
       <Text>{title}</Text>
+      <Text>{author}</Text>
       <Text>{body}</Text>
+
+      <View style={styles.postMeta}>
+        <Text style={{flex: 0.3}}>views: {viewCount}</Text>
+        <Button style={{flex: 0.2}} title={commentStr}></Button>
+        <Text style={{flex: 0.2}}>likes: {likeCount}</Text>
+      </View>
+      <Text>tags: {tags}</Text>
+      
     </View>
   )
 }
@@ -27,12 +38,14 @@ export const styles = StyleSheet.create({
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'row'
-},
+  },
   post: {
-    backgroundColor: '#f7ffe0'
-    // backgroundColor: 'blue'
-},
-
+    backgroundColor: '#f7ffe0',
+    padding: 10,
+  },
+  postMeta: {
+    flexDirection: "row"
+  }
 })
 
 
