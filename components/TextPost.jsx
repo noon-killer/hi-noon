@@ -11,12 +11,10 @@
 */
 import { StyleSheet, View, Text } from 'react-native';
 
-const TextPost = ({title, author, body, hashtags, viewCount, commentCount}) => {
+const TextPost = ({title, author, body, tags, viewCount, commentCount, likeCount}) => {
 
   return (
-    <View 
-      style={{backgroundColor: 'f7ffe0', flex:0.3}}
-    >
+    <View style={styles.post}>
       <Text>{title}</Text>
       <Text>{body}</Text>
     </View>
@@ -29,7 +27,12 @@ export const styles = StyleSheet.create({
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'row'
-}
+},
+  post: {
+    // backgroundColor: '#f7ffe0'
+    backgroundColor: 'blue'
+},
+
 })
 
 

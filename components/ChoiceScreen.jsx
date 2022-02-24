@@ -3,6 +3,7 @@ import React from 'react'
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import {getRandomPersons} from './getRandomPersons'
 import createDecision from './createDecision'
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 export const ChoiceScreen = () => {
   
@@ -79,6 +80,6 @@ circle: {
   borderRadius: 100,
   justifyContent: 'center',
   alignItems: 'center',
-  flexDirection: 'row'
+  flexDirection: 'row',
 }
 })

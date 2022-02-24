@@ -1,0 +1,26 @@
+{ "data": [
+  {
+  "title": "Title 1",
+  "author": "Jintaco",
+  "body": "I love cheeseburgers",
+  "tags": ['food', 'relationships'],
+  "viewCount": 13,
+  "commentCount": 6
+},
+{
+  "title": "Title 2",
+  "author": "taco2",
+  "body": "Whats up",
+  "tags": ['intros', 'profilePics'],
+  "viewCount": 17,
+  "commentCount": 2
+},
+{
+  "title": "Title 3",
+  "author": "Person3",
+  "body": "I like long walks on the beach",
+  "tags": ['food', 'relationsips'],
+  "viewCount": 1,
+  "commentCount": 0
+}
+]}
