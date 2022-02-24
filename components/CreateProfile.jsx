@@ -104,6 +104,6 @@ const CreateProfile = props => {
       
     </section>
   );
-};
+}};
 
-export default withRouter(CreateProfile);
+export default withRouter(CreateProfile)
