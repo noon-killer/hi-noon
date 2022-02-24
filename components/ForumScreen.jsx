@@ -7,9 +7,10 @@ import TextPost from './TextPost';
 export const ForumScreen = () => {
   // make getPosts call here to get an array of post objects
   // map post objects to textPost components and render under view
+  const {{postDetailses}} = getAllPosts();
   const postArray = [];
-  posts.forEach( ({data}) => {
-    console.log('post:', data)
+  postDetailses.forEach( (post) => {
+    console.log('post:', post)
     postArray.push(<TextPost title={post.title} author={post.author} body={post.body} hashtags={post.tags} viewCount={post.viewCount} commentCount={post.commentCount}/>)
   })
   return (
