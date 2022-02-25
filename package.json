@@ -22,7 +22,10 @@
     "react-native-reanimated": "^2.3.1",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.2",
-    "react-native-web": "^0.17.6"
+    "react-native-web": "^0.17.6",
+    "tailwind-react-native-classnames": "^1.5.1",
+    "tailwindcss": "^3.0.23",
+    "twrnc": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

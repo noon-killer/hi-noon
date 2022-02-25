@@ -11,7 +11,6 @@ const getAllPosts = () => {
       console.log('All Post Data: ', data);
     })
     .catch(err => console.log('getAllPosts fetch /api/getAllPosts: ERROR: ', err));
-    
 };
 
 export default getAllPosts
