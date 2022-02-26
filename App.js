@@ -3,13 +3,16 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppNavigator } from './containers/MenuContainer'
+import { NativeBaseProvider, Box } from "native-base";
 
 const App = () => {
 
   return (
-    <NavigationContainer>
-      <AppNavigator />
-    </NavigationContainer>
+    <NativeBaseProvider>
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 };
 

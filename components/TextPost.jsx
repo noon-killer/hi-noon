@@ -10,7 +10,6 @@
   - comment button
 */
 import { StyleSheet, View, Text, Button } from "react-native";
-import tw from "twrnc";
 
 const TextPost = ({
   title,
@@ -24,16 +23,16 @@ const TextPost = ({
   const commentStr = `Comments: ${commentCount}`;
 
   return (
-    <View style={tw`flex items-start space-x-6 p-6`}>
-      <View style={tw`min-w-0 relative flex-auto`}>
-        <Text style={tw`font-semibold text-slate-900`}>{title}</Text>
+    <View>
+      <View>
+        <Text>{title}</Text>
         <Text>{author}</Text>
         <Text>{body}</Text>
       </View>
 
       <View style={styles.postMeta}>
         <Text style={{ flex: 0.3 }}>views: {viewCount}</Text>
-        <Button style={tw.style('px-1.5', 'ring-1', 'ring-slate-200', 'rounded')} title={commentStr}></Button>
+        <Button style={{flex: 0.4}} title={commentStr}></Button>
         <Text style={{ flex: 0.2 }}>likes: {likeCount}</Text>
       </View>
 

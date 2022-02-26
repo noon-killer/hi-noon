@@ -1,16 +1,17 @@
 import React from 'react'
 import { styles } from '../stylesheets/styles'
-import { Text, TouchableOpacity, View } from 'react-native';
-import tw from 'tailwind-react-native-classnames';
+import { Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import posts from '../data/posts.json'
 import TextPost from './TextPost';
 import getAllPosts from './getAllPosts';
 
 console.log('Test Console Log')
 // const {_embedded: {postDetailses}} = getAllPosts();
+// const data = getAllPosts();
 const {data} = posts;
 const postDetailses = data;
-console.log(postDetailses)
+console.log(posts)
+// console.log(postDetailses)
 
 const postArray = [];
   
@@ -24,9 +25,11 @@ export const ForumScreen = () => {
   // map post objects to textPost components and render under view
   
   return (
-    <View>
-      {postArray}
-    </View>
+    <ScrollView>
+      <View>
+        {postArray}
+      </View>
+    </ScrollView>
   )
 };
 
