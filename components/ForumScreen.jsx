@@ -6,13 +6,27 @@ import TextPost from "./TextPost";
 import getAllPosts from "./getAllPosts";
 import { VStack } from "native-base";
 
-console.log("Test Console Log");
-// const {_embedded: {postDetailses}} = getAllPosts();
+let postDetailses
+try {
+  const {
+    _embedded: {postDetailses},
+  } = getAllPosts();
+  console.log("Connection to server successful. Using getAllPosts API...");
+} catch {
+  const { data } = posts;
+  postDetailses = data;
+
+  console.log("Failed to connect to server. Using temp data...");
+}
 // const data = getAllPosts();
-const { data } = posts;
-const postDetailses = data;
-console.log(posts);
-// console.log(postDetailses)
+// console.log(data)
+// const {
+//       _embedded: {postDetailses},
+//     } = getAllPosts();
+
+// const { data } = posts;
+//   const postDetailses = data;
+console.log("logging post details:", postDetailses);
 
 const postArray = [];
 

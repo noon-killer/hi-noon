@@ -9,8 +9,8 @@
   - comment count
   - comment button
 */
-import { StyleSheet, View, Text, Button } from "react-native";
-import { Container, Box, Flex, Divider, Badge, Spacer } from "native-base";
+import { StyleSheet, View, Button } from "react-native";
+import { Container, Box, Flex, Divider, Badge, Spacer, Text } from "native-base";
 
 const TextPost = ({
   title,
@@ -23,17 +23,15 @@ const TextPost = ({
 }) => {
   const commentStr = `Comments: ${commentCount}`;
   console.log(hashtags);
-  const tagsArr = hashtags.map((item) => <Badge>{item}</Badge>);
+  const tagsArr = hashtags.map((item) => <Badge key={item}>{item}</Badge>);
 
   return (
-    <Container>
-      <Flex direction="row">{tagsArr}</Flex>
+    <Container px="0.1" py="3" borderStyle="solid">
+      <Flex direction="row" alignItems="flex-start">{tagsArr}</Flex>
 
       <View>
-        <Text>{title}</Text>
-        
-        <Text>{author}</Text>
-        <Text>{body}</Text>
+        <Text fontFamily="body" fontWeight={600} fontSize={24}>{title}</Text>
+        <Text>Posted By {author} {'\u2B24'} 2h ago</Text>
       </View>
 
       <Box alignItems="center">

@@ -1,16 +1,22 @@
-const getAllPosts = () => {
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs([
+  "Overwriting fontFamily style attribute preprocessor"
+]);
 
-  fetch({
-    method: 'GET',
+const getAllPosts = () => {
+  fetch("dawsontest.com/dating_app/post", {
+    method: "GET",
     headers: {
-      'Content-Type': 'Application/JSON'
-    }
+      "Content-Type": "Application/JSON",
+    },
   })
-    .then(res => res.json())
+    .then((res) => res.json())
     .then((data) => {
-      console.log('All Post Data: ', data);
+      console.log("All Post Data: ", data);
     })
-    .catch(err => console.log('getAllPosts fetch /api/getAllPosts: ERROR: ', err));
+    .catch((err) =>
+      console.log("getAllPosts fetch /api/getAllPosts: ERROR: ", err)
+    );
 };
 
-export default getAllPosts
+export default getAllPosts;
