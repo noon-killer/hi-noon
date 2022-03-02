@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { AppNavigator } from './containers/MenuContainer'
+import { MainContainer } from './containers/MainContainer'
 import { NativeBaseProvider, extendTheme } from "native-base";
 import * as Font from 'expo-font';
 
@@ -66,7 +66,7 @@ const App = () => {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
-        <AppNavigator />
+        <MainContainer />
       </NavigationContainer>
     </NativeBaseProvider>
   );

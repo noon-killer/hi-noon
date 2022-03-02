@@ -41,6 +41,7 @@ postDetailses.forEach((post) => {
       hashtags={post.tags}
       viewCount={post.viewCount}
       commentCount={post.commentCount}
+      
     />
   );
 });
@@ -51,7 +52,7 @@ export const ForumScreen = () => {
 
   return (
     <ScrollView>
-      <VStack space={2} alignItems={"center"}>
+      <VStack space={2} ml={1} alignItems={"center"}>
         {postArray}
       </VStack>
     </ScrollView>

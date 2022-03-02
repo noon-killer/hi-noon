@@ -1,6 +1,6 @@
 const createPerson = (body) => {
 
-    fetch('dawsontest.com/dating_app/create_person', {
+    fetch('dawsontest.com/dating_app/profile/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'Application/JSON'

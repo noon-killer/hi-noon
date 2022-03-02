@@ -10,7 +10,16 @@
   - comment button
 */
 import { StyleSheet, View, Button } from "react-native";
-import { Container, Box, Flex, Divider, Badge, Spacer, Text } from "native-base";
+import {
+  Container,
+  Box,
+  Flex,
+  Divider,
+  Badge,
+  Spacer,
+  Text,
+  Pressable,
+} from "native-base";
 
 const TextPost = ({
   title,
@@ -20,42 +29,70 @@ const TextPost = ({
   viewCount,
   commentCount,
   likeCount,
+  navigation
 }) => {
   const commentStr = `Comments: ${commentCount}`;
   console.log(hashtags);
   const tagsArr = hashtags.map((item) => <Badge key={item}>{item}</Badge>);
 
   return (
-    <Container px="0.1" py="3" borderStyle="solid">
-      <Flex direction="row" alignItems="flex-start">{tagsArr}</Flex>
+    <Pressable onPress={() => {
+      console.log(`Pressed ${author}'s post`),
+      navigation.navigate('PlayGround')
+    }}>
+      {({ isHovered, isFocused, isPressed }) => {
+        return (
+          <Container
+            py="3"
+            borderWidth="1"
+            borderColor="coolGray.300"
+            shadow="3"
+            bg={
+              isPressed
+                ? "coolGray.200"
+                : isHovered
+                ? "coolGray.200"
+                : "coolGray.100"
+            }
+            p="5"
+            rounded="8"
+          >
+            <Flex direction="row">
+              {tagsArr}
+            </Flex>
 
-      <View>
-        <Text fontFamily="body" fontWeight={600} fontSize={24}>{title}</Text>
-        <Text>Posted By {author} {'\u2B24'} 2h ago</Text>
-      </View>
+            <View>
+              <Text fontFamily="body" fontWeight={600} fontSize={24}>
+                {title}
+              </Text>
+              <Text>
+                Posted By {author} {"\u2B24"} 2h ago
+              </Text>
+            </View>
 
-      <Box alignItems="center">
-        <Flex direction="row" h="58" p="4">
-          <Text>views: {viewCount}</Text>
-          <Divider
-            bg="emerald.500"
-            thickness="2"
-            mx="2"
-            orientation="vertical"
-          />
-          <Text>{commentStr}</Text>
-          <Divider
-            bg="emerald.500"
-            thickness="2"
-            mx="2"
-            orientation="vertical"
-          />
-          <Text>likes: {likeCount}</Text>
-        </Flex>
-      </Box>
-      
-    </Container>
-    
+            <Box>
+              <Flex direction="row" h="58" p="4">
+                <Text>views: {viewCount}</Text>
+                <Divider
+                  bg="emerald.500"
+                  thickness="2"
+                  mx="2"
+                  orientation="vertical"
+                />
+                <Text>{commentStr}</Text>
+                <Divider
+                  bg="emerald.500"
+                  thickness="2"
+                  mx="2"
+                  orientation="vertical"
+                />
+                <Text>likes: {likeCount}</Text>
+              </Flex>
+            </Box>
+          </Container>
+        );
+      }}
+    </Pressable>
   );
 };
 
