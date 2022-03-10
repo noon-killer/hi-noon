@@ -1,10 +1,9 @@
-import { LogBox } from 'react-native';
-LogBox.ignoreLogs([
-  "Overwriting fontFamily style attribute preprocessor"
-]);
+import { LogBox } from "react-native";
+LogBox.ignoreLogs(["Overwriting fontFamily style attribute preprocessor"]);
 
 const getPostById = (postId) => {
-  fetch(`dawsontest.com/dating_app/post/${postId}`, {
+  console.log(`dawsontest.com/dating_app/post/${postId}`);
+  fetch(`http://dawsontest.com/dating_app/post/${postId}`, {
     method: "GET",
     headers: {
       "Content-Type": "Application/JSON",
@@ -15,7 +14,7 @@ const getPostById = (postId) => {
       console.log("Post Data: ", data);
     })
     .catch((err) =>
-      console.log("getPostById\ fetch /api/getPost: ERROR: ", err)
+      console.log("getPostById fetch /api/getPost: ERROR: ", err)
     );
 };
 

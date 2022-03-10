@@ -5,6 +5,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { MainContainer } from './containers/MainContainer'
 import { NativeBaseProvider, extendTheme } from "native-base";
 import * as Font from 'expo-font';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { RequestProfileDetails } from "./components/RequestProfileDetails";
+import { RequestProfileSummary } from "./components/RequestProfileSummary";
+import { FullPostScreen } from "./components/FullPostScreen";
+
+const Stack = createNativeStackNavigator();
 
 const theme = extendTheme({
   fontConfig: {
@@ -50,6 +56,7 @@ const theme = extendTheme({
   // Make sure values below matches any of the keys in `fontConfig`
   fonts: {
     heading: 'Roboto',
+    title: 'Roboto',
     body: 'Roboto',
     mono: 'Roboto',
   },
@@ -66,7 +73,12 @@ const App = () => {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
-        <MainContainer />
+        <Stack.Navigator>
+          <Stack.Screen name="MainContainer" component={MainContainer} />
+          <Stack.Screen name="RequestProfileDetails" component={RequestProfileDetails} />
+          <Stack.Screen name="RequestProfileSummary" component={RequestProfileSummary} />
+          <Stack.Screen name="FullPostScreen" component={FullPostScreen} />
+        </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
   );

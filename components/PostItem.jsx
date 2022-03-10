@@ -9,6 +9,7 @@
   - comment count
   - comment button
 */
+import getPostById from "./getPostById";
 import { StyleSheet, View, Button } from "react-native";
 import {
   Container,
@@ -21,7 +22,8 @@ import {
   Pressable,
 } from "native-base";
 
-const TextPost = ({
+const PostItem = ({
+  id,
   title,
   author,
   body,
@@ -29,17 +31,20 @@ const TextPost = ({
   viewCount,
   commentCount,
   likeCount,
-  navigation
+  navigation,
 }) => {
   const commentStr = `Comments: ${commentCount}`;
   console.log(hashtags);
   const tagsArr = hashtags.map((item) => <Badge key={item}>{item}</Badge>);
 
   return (
-    <Pressable onPress={() => {
-      console.log(`Pressed ${author}'s post`),
-      navigation.navigate('PlayGround')
-    }}>
+    <Pressable
+      onPress={() => {
+        console.log(`Pressed ${author}'s post, ${id}`);
+        navigation.navigate("FullPostScreen", { postId: id });
+        // navigation.navigate('PlayGround')
+      }}
+    >
       {({ isHovered, isFocused, isPressed }) => {
         return (
           <Container
@@ -57,9 +62,7 @@ const TextPost = ({
             p="5"
             rounded="8"
           >
-            <Flex direction="row">
-              {tagsArr}
-            </Flex>
+            <Flex direction="row">{tagsArr}</Flex>
 
             <View>
               <Text fontFamily="body" fontWeight={600} fontSize={24}>
@@ -112,4 +115,4 @@ export const styles = StyleSheet.create({
   },
 });
 
-export default TextPost;
+export default PostItem;

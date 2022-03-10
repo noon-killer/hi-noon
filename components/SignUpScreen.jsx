@@ -15,56 +15,26 @@ import {
 } from "native-base";
 import createPerson from "./createPerson";
 
-export const HomeScreen = ({ navigation }) => {
-  // function doPost(endpoint) {
-  //   fetch(endpoint, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'Application/JSON'
-  //     },
-  //     body: JSON.stringify({
-  //       name,
-  //       age,
-  //       location,
-  //       profile_id,
-  //     })
-  //   })
-  //     .then(res => res.json())
-  //     .then((data) => {
-  //       console.log('returned data: ', data);
-  //     })
-  //     .catch(err => console.log('CreatePerson fetch /api/create_person: ERROR: ', err));
-  // };
-
+export const SignUp = ({ navigation }) => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [location, setLocation] = useState("");
   const profile_id = Math.floor(Math.random() * 1000);
 
-  const postBody = {
-    name,
-    age,
-    location,
-    profile_id,
-  };
-
   return (
-    <Container>
-      <Flex direction="row" alignItems={{ base: "center" }}>
-        <Center>
-          <Box
-            _text={{
-              fontWeight: "bold",
-              fontSize: "2xl",
-              color: "black",
-            }}
-          >
-            Create an Account
-          </Box>
-        </Center>
-      </Flex>
-
+    <Flex direction="row" justifyContent="space-around">
       <Container>
+        <Box
+          alignSelf="center"
+          _text={{
+            fontWeight: "bold",
+            fontSize: "2xl",
+            color: "black",
+          }}
+        >
+          Create an Account
+        </Box>
+
         <FormControl isRequired>
           <Stack px={4} safeArea mt={6}>
             <FormControl.Label>Username</FormControl.Label>
@@ -80,13 +50,25 @@ export const HomeScreen = ({ navigation }) => {
             <FormControl.HelperText>
               Password must be minimum of 8 characters.
             </FormControl.HelperText>
+
+            <FormControl.Label>First Name</FormControl.Label>
+            <Input p={2} placeholder="Joe" />
+
+            <FormControl.Label>Last Name</FormControl.Label>
+            <Input p={2} placeholder="King" />
           </Stack>
         </FormControl>
-      </Container>
 
-      <Button onPress={() => console.log("Create Account Pressed")}>
-        Create Account
-      </Button>
-    </Container>
+        <Button
+          alignSelf="center"
+          onPress={() => {
+            console.log("Create Account Pressed");
+            navigation.navigate("RequestProfileDetails");
+          }}
+        >
+          Create Account
+        </Button>
+      </Container>
+    </Flex>
   );
 };
