@@ -1,8 +1,6 @@
 import React from 'react'
 // import { styles } from '../stylesheets/styles'
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
-import {getRandomPersons} from './getRandomPersons'
-import createDecision from './createDecision'
 import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 export const ChoiceScreen = () => {

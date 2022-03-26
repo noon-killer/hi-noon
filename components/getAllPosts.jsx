@@ -9,8 +9,9 @@ const getAllPosts = () => {
     },
   })
     .then((res) => res.json())
-    .then((data) => {
-      console.log("All Post Data: ", data);
+    .then(({_embedded}) => {
+      // console.log("All Post Data: ", _embedded.postDetails);
+      return _embedded.postDetails;
     })
     .catch((err) =>
       console.log("getAllPosts fetch /api/getAllPosts: ERROR: ", err)

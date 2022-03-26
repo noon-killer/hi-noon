@@ -14,6 +14,7 @@ const Stack = createNativeStackNavigator();
 // Add the new stack navigator above this line
 
 export const MainContainer = () => (
+  
   <Tab.Navigator initialRouteName="Forum">
     <Tab.Screen name="SignUp" component={SignUp} />
     <Tab.Screen name="Forum" component={ForumScreen} />

@@ -31,6 +31,7 @@ const PostItem = ({
   viewCount,
   commentCount,
   likeCount,
+  updatedAt,
   navigation,
 }) => {
   const commentStr = `Comments: ${commentCount}`;
@@ -39,9 +40,12 @@ const PostItem = ({
 
   return (
     <Pressable
-      onPress={() => {
+      onPress={async () => {
         console.log(`Pressed ${author}'s post, ${id}`);
-        navigation.navigate("FullPostScreen", { postId: id });
+        const data = await getPostById(id)
+        console.log('data from postItem: ', data)
+        navigation.navigate("FullPostScreen",  {data: data} );
+        // navigation.navigate("FullPostScreen", { postId: id });
         // navigation.navigate('PlayGround')
       }}
     >
@@ -91,6 +95,10 @@ const PostItem = ({
                 />
                 <Text>likes: {likeCount}</Text>
               </Flex>
+            </Box>
+
+            <Box>
+              <Text>last updated: {updatedAt}</Text>
             </Box>
           </Container>
         );

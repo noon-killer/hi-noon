@@ -13,7 +13,7 @@ import {
   Box,
   Flex,
 } from "native-base";
-import createPerson from "./createPerson";
+import createProfile from "./createProfile";
 
 export const SignUp = ({ navigation }) => {
   const [name, setName] = useState("");
@@ -64,6 +64,7 @@ export const SignUp = ({ navigation }) => {
           onPress={() => {
             console.log("Create Account Pressed");
             navigation.navigate("RequestProfileDetails");
+            createProfile(body)
           }}
         >
           Create Account

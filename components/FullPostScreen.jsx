@@ -1,12 +1,14 @@
 import React from "react";
-import { styles } from "../stylesheets/styles";
-import { TouchableOpacity, View, ScrollView } from "react-native";
+import { TouchableOpacity, View, ScrollView, StyleSheet } from "react-native";
 import getPostById from "./getPostById";
 import {
   Container,
   Box,
+  Button,
   Flex,
   Divider,
+  VStack,
+  Stack,
   Badge,
   Spacer,
   Text,
@@ -15,7 +17,19 @@ import {
 
 export const FullPostScreen = ({ navigation, route }) => {
   // destruture data to individual components
-  const data = getPostById(route.params.postId);
+  const {
+    data: {
+      comment_count,
+      view_count,
+      title,
+      id,
+      body,
+      like_count,
+      profile_id,
+      tags,
+      updated_at,
+    },
+  } = route.params;
 
   /* TODO: 
   1. add exit/back button for single post
@@ -23,18 +37,27 @@ export const FullPostScreen = ({ navigation, route }) => {
   3. determine metadata locations - tags on top, comments on bottom?
   4. create textable area component or integrate directly here
    */
+  const tagsArr = tags.map((item) => <Badge key={item}>{item}</Badge>);
 
   return (
     <ScrollView>
       <VStack space={2} ml={1} alignItems={"center"}>
-        <Text>postId: {route.params.postId} </Text>
+        <Text>postId: {id} </Text>
         <Container name="content">
           <Flex direction="row">{tagsArr}</Flex>
-          <Text fontFamily="title" fontWeight={600} fontSize={24}>
+          <Text fontFamily="Roboto" fontWeight={600} fontSize={24}>
             {title}
           </Text>
           <Box>
             <Text>{body}</Text>
+          </Box>
+          <Box>
+            <Text>comments: {comment_count}</Text>
+            <Text>views: {view_count}</Text>
+            <Text>likes: {like_count}</Text>
+          </Box>
+          <Box>
+            <Text>Updated at: {updated_at}</Text>
           </Box>
         </Container>
 
@@ -65,4 +88,3 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 });
-
