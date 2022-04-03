@@ -2,13 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { MainContainer } from './containers/MainContainer'
+import { MainContainer } from './Containers/MainContainer'
 import { NativeBaseProvider, extendTheme } from "native-base";
 import * as Font from 'expo-font';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { RequestProfileDetails } from "./components/RequestProfileDetails";
-import { RequestProfileSummary } from "./components/RequestProfileSummary";
-import { FullPostScreen } from "./components/FullPostScreen";
+import { RequestProfileDetails } from "./Components/RequestProfileDetails";
+import { RequestProfileSummary } from "./Components/RequestProfileSummary";
+import { FullPostScreen } from "./Components/Screens/FullPostScreen";
 
 const Stack = createNativeStackNavigator();
 
