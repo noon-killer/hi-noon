@@ -10,7 +10,6 @@
   - comment button
 */
 import { StyleSheet, View, Text, Button } from "react-native";
-import tw from "twrnc";
 
 const TextPost = ({
   title,

@@ -2,11 +2,11 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { HomeScreen } from '../components/HomeScreen';
-import { ChoiceScreen } from '../components/ChoiceScreen';
-import { ForumScreen } from '../components/ForumScreen';
-import { CardScreen } from '../components/CardScreen';
-import { PlayGroundScreen } from '../components/PlayGroundScreen';
+import { HomeScreen } from '../Components/HomeScreen';
+import { ChoiceScreen } from '../Components/ChoiceScreen';
+import { ForumScreen } from '../Components/ForumScreen';
+import { CardScreen } from '../Components/CardScreen';
+import { PlayGroundScreen } from '../Components/PlayGroundScreen';
 
 // const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

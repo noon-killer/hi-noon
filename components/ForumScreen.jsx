@@ -1,7 +1,6 @@
 import React from 'react'
 import { styles } from '../stylesheets/styles'
 import { Text, TouchableOpacity, View } from 'react-native';
-import tw from 'tailwind-react-native-classnames';
 import posts from '../data/posts.json'
 import TextPost from './TextPost';
 import getAllPosts from './getAllPosts';
