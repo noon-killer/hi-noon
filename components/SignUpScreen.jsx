@@ -13,7 +13,7 @@ import {
   Box,
   Flex,
 } from "native-base";
-import createProfile from "./createProfile";
+import createProfile from "./CreateProfile";
 
 export const SignUp = ({ navigation }) => {
   const [name, setName] = useState("");
