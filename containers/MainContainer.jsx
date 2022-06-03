@@ -14,15 +14,13 @@ const Stack = createNativeStackNavigator();
 const isLoggedIn = false
 // Add the new stack navigator above this line
 
-export const MainContainer = () => (
-  
-  isLoggedIn ? (
-
+export const MainContainer = () => {
+  return (
   <Tab.Navigator initialRouteName="Forum">
     <Tab.Screen name="SignUp" component={SignUp} />
     <Tab.Screen name="Forum" component={ForumScreen} />
     <Tab.Screen name="PlayGround" component={PlayGroundScreen} />
   </Tab.Navigator>
+  )
+}
 
-  ) : {SignUp}
-);

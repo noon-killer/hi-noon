@@ -59,15 +59,17 @@ const LoginScreen = ({navigation}) => {
         //Hide Loader
         setLoading(false);
         console.log(responseJson);
+        navigation.replace('DrawerNavigationRoutes') // login bypass
         // If server response message same as Data Matched
-        if (responseJson.status == 1) {
-          AsyncStorage.setItem('user_id', responseJson.data[0].user_id);
-          console.log(responseJson.data[0].user_id);
-          navigation.replace('DrawerNavigationRoutes');
-        } else {
-          setErrortext('Please check your email id or password');
-          console.log('Please check your email id or password');
-        }
+        // if (responseJson.status == 1) {
+        //   AsyncStorage.setItem('user_id', responseJson.data[0].user_id);
+        //   console.log(responseJson.data[0].user_id);
+        //   navigation.replace('DrawerNavigationRoutes');
+        // } else {
+        //   navigation.replace('DrawerNavigationRoutes') // login bypass
+        //   // setErrortext('Please check your email id or password');
+        //   console.log('Please check your email id or password');
+        // }
       })
       .catch((error) => {
         //Hide Loader

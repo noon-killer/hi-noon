@@ -5,6 +5,7 @@ const getAllPosts = () => {
   fetch("http://dawsontest.com/dating_app/post", {
     method: "GET",
     headers: {
+      "Authorization": "Basic ZGF3c29uOnBhc3N3b3Jk",
       "Content-Type": "Application/JSON",
     },
   })
