@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { styles } from "../stylesheets/styles";
+import { styles } from "../../stylesheets/styles";
 import { Text, TouchableOpacity, View, ScrollView } from "react-native";
-import posts from "../data/posts.json";
-import PostItem from "./PostItem";
-import getAllPosts from "./getAllPosts";
+import posts from "../../data/posts.json";
+import PostItem from "../PostItem";
+import getAllPosts from "../getAllPosts";
 import { VStack } from "native-base";
 
 // let postDetailses;

@@ -1,11 +1,11 @@
 import React from 'react'
-import { styles } from '../stylesheets/styles'
+import { styles } from '../../stylesheets/styles'
 import { Text, TouchableOpacity, View } from 'react-native';
 
-export const PlayGroundScreen = () => (
+export const CardScreen = () => (
   <View style={styles.layout}>
     <TouchableOpacity>
-      <Text style={styles.title}>PlayGround</Text>
+      <Text style={styles.title}>My Cards</Text>
     </TouchableOpacity>
   </View>
 ); 

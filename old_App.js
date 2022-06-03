@@ -1,5 +1,9 @@
+// Example of Splash, Login and Sign Up in React Native
+// https://aboutreact.com/react-native-login-and-signup/
+import 'react-native-gesture-handler';
+
 // Import React and Component
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // Import Navigators from React Navigation
 import {NavigationContainer} from '@react-navigation/native';
@@ -11,19 +15,7 @@ import LoginScreen from './Screen/LoginScreen';
 import RegisterScreen from './Screen/RegisterScreen';
 import DrawerNavigationRoutes from './Screen/DrawerNavigationRoutes';
 
-// miscellaneous imports
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
-import { MainContainer } from './Containers/MainContainer'
-import { NativeBaseProvider, extendTheme } from "native-base";
-import * as Font from 'expo-font';
-import 'react-native-gesture-handler';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { RequestProfileDetails } from "./Components/RequestProfileDetails";
-import { RequestProfileSummary } from "./Components/RequestProfileSummary";
-import { FullPostScreen } from "./Components/Screens/FullPostScreen";
-
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const Auth = () => {
   // Stack Navigator for Login and Sign up Screen
@@ -32,7 +24,7 @@ const Auth = () => {
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{headerShown: true}}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="RegisterScreen"
@@ -52,29 +44,8 @@ const Auth = () => {
   );
 };
 
-// const App = () => {
-//   useEffect(() => {
-//     (async () => await Font.loadAsync({
-//       Roboto: require('./assets/fonts/walkway/Walkway_Black.ttf'),
-//       Roboto_medium: require('./assets/fonts/walkway/Walkway_Oblique.ttf'),
-//     }))();
-//    }, []);
-   
-//   return (
-//     <NativeBaseProvider>
-//       <NavigationContainer>
-//         <Stack.Navigator>
-//           <Stack.Screen name="MainContainer" component={MainContainer} />
-//           <Stack.Screen name="RequestProfileDetails" component={RequestProfileDetails} />
-//           <Stack.Screen name="RequestProfileSummary" component={RequestProfileSummary} />
-//           <Stack.Screen name="FullPostScreen" component={FullPostScreen} />
-//         </Stack.Navigator>
-//       </NavigationContainer>
-//     </NativeBaseProvider>
-//   );
-// };
-// };
-
+/* Switch Navigator for those screens which needs to be switched only once
+  and we don't want to switch back once we switch from them to the next one */
 const App = () => {
   return (
     <NavigationContainer>
@@ -84,7 +55,7 @@ const App = () => {
           name="SplashScreen"
           component={SplashScreen}
           // Hiding header for Splash Screen
-          options={{headerShown: true}}
+          options={{headerShown: false}}
         />
         {/* Auth Navigator which includer Login Signup will come once */}
         <Stack.Screen
@@ -103,5 +74,5 @@ const App = () => {
     </NavigationContainer>
   );
 };
-export default App
 
+export default App;

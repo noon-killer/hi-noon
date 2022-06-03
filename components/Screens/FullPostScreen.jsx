@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, View, ScrollView, StyleSheet } from "react-native";
-import getPostById from "./getPostById";
+import getPostById from "../getPostById";
 import {
   Container,
   Box,

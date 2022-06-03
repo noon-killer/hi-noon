@@ -3,6 +3,7 @@ const createProfile = (body) => {
     fetch('dawsontest.com/dating_app/profile/create', {
       method: 'POST',
       headers: {
+        "Authorization": "Basic ZGF3c29uOnBhc3N3b3Jk",
         'Content-Type': 'Application/JSON'
       },
       body: JSON.stringify(body)

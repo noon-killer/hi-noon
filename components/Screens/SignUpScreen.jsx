@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { styles } from "../stylesheets/styles";
+import { styles } from "../../stylesheets/styles";
 import { View, TextInput } from "react-native";
 import {
   Text,
@@ -13,7 +13,7 @@ import {
   Box,
   Flex,
 } from "native-base";
-import createProfile from "./CreateProfile";
+import createProfile from "../CreateProfile";
 
 export const SignUp = ({ navigation }) => {
   const [name, setName] = useState("");
